@@ -27,12 +27,12 @@ console.log("The magic word is " + answer);
 
 // addEventListener for js/page magic
 
-var bumpCount = function (e) {
-  var target = e.target;
+var bumpCount = function (event) {
+  var target = event.target; // get the targeted part of the page out of the event
   target.innerHTML = Number(target.innerHTML) + 1;
 };
 
-var wipe = function (e) {
+var wipe = function (event) {
   document.write("<div></div>");
 };
 
@@ -56,3 +56,10 @@ letters.addEventListener('click', function (e) { console.log(e); });
 //   target = e.target;
 // });
 
+var butt = document.querySelector(".form-button");
+butt.addEventListener('click', function (event) {
+  event.preventDefault();
+  var input = document.querySelector(".count-input");
+  var turns = document.querySelector("#turn-count");
+  turns.textContent = input.value;
+});
