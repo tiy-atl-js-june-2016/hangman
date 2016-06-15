@@ -1,8 +1,3 @@
-var turnsLeft = function () {
-  var element = document.getElementById('turn-count');
-  return element.textContent;
-};
-
 var guesses = [];
 var wordList = [
   "cookies", "elephant", "doughnut", "doge",
@@ -15,6 +10,7 @@ var randomItem = function (items) {
   return items[index];
 };
 
+var turnCount = document.getElementById('turn-count');
 var answer = randomItem(wordList);
 console.log("The magic word is " + answer);
 
@@ -25,16 +21,20 @@ var bumpCount = function (event) {
   target.innerHTML = Number(target.innerHTML) + 1;
 };
 
+var makeGuess = function (event) {
+  var pageNode = event.target;
+  var letter = pageNode.textContent;
+  if (!guesses.includes(letter)) {
+    pageNode.classList.add("guessed");
+    guesses.push(letter);
+    if (!answer.includes(letter)) {
+      turnCount.textContent = Number(turnCount.textContent) - 1;
+    }
+  }
+};
+
 var el = document.querySelector("#turn-count");
 el.addEventListener('click', bumpCount);
 
 var letters = document.querySelector(".alphabet");
-letters.addEventListener('click', function (event) {
-  var pageNode = event.target;
-  if (!guesses.includes(pageNode.textContent)) {
-    pageNode.classList.add("guessed");
-    guesses.push(pageNode.textContent);
-  } else {
-    alert("You guessed that dummy.");
-  }
-});
+letters.addEventListener('click', makeGuess);
