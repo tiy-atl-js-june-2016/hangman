@@ -21,3 +21,13 @@
     font-weight: normal;
     color: red;
 }
+
+#board {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#board span {
+    margin: 20px;
+    font-size: 25px;
+}

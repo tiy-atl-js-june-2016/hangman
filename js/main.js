@@ -14,6 +14,13 @@ var turnCount = document.getElementById('turn-count');
 var answer = randomItem(wordList);
 console.log("The magic word is " + answer);
 
+var board = document.querySelector("#board");
+var newHTML = "";
+for(var count = 0; count < answer.length; count++) {
+  newHTML += "<span>_</span>";
+};
+board.innerHTML = newHTML;
+
 // addEventListener for js/page magic
 
 var bumpCount = function (event) {
@@ -24,6 +31,7 @@ var bumpCount = function (event) {
 var makeGuess = function (event) {
   var pageNode = event.target;
   var letter = pageNode.textContent;
+
   if (!guesses.includes(letter)) {
     pageNode.classList.add("guessed");
     guesses.push(letter);
