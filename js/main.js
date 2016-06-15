@@ -1,9 +1,17 @@
-var sayHi = function (name) {
-  console.log("Hello there, " + name);
-};
+// var sayHi = function (name) {
+//   console.log("Hello there, " + name);
+// };
 
 // console.log("Hangman is just a game.");
 // sayHi("Brit");
+
+// var addOne = function(x) {
+//   return x + 1;
+// };
+
+// document.querySelector("h1").addEventListener('click', function () {
+//   console.log(addOne(4));
+// });
 
 var turnsLeft = function () {
   var element = document.getElementById('turn-count');
@@ -40,7 +48,10 @@ var el = document.querySelector("#turn-count");
 el.addEventListener('click', bumpCount);
 
 var letters = document.querySelector(".alphabet");
-letters.addEventListener('click', function (e) { console.log(e); });
+letters.addEventListener('click', function (event) {
+  event.target.classList.add("guessed");
+  guesses.push(event.target.textContent);
+});
 
 
 // el.addEventListener('click', function (e) {
@@ -56,10 +67,12 @@ letters.addEventListener('click', function (e) { console.log(e); });
 //   target = e.target;
 // });
 
-var butt = document.querySelector(".form-button");
-butt.addEventListener('click', function (event) {
-  event.preventDefault();
-  var input = document.querySelector(".count-input");
-  var turns = document.querySelector("#turn-count");
-  turns.textContent = input.value;
-});
+// var butt = document.querySelector(".form-button");
+// butt.addEventListener('click', function (event) {
+//   event.preventDefault();
+//   var color = randomItem(["red", "blue", "green"]);
+//   var input = document.querySelector(".count-input");
+//   var turns = document.querySelector("#turn-count");
+//   turns.textContent = input.value;
+//   turns.style.backgroundColor = color;
+// });
