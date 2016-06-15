@@ -49,8 +49,20 @@ el.addEventListener('click', bumpCount);
 
 var letters = document.querySelector(".alphabet");
 letters.addEventListener('click', function (event) {
-  event.target.classList.add("guessed");
-  guesses.push(event.target.textContent);
+  var pageNode = event.target;
+  if (!guesses.includes(pageNode.textContent)) {
+    pageNode.classList.add("guessed");
+    guesses.push(pageNode.textContent);
+  } else {
+    alert("You guessed that dummy.");
+  }
+
+  // if (pageNode.classList.contains("guessed") == false) {
+  //   pageNode.classList.add("guessed");
+  //   guesses.push(pageNode.textContent);
+  // } else {
+  //   alert("You guessed that already. Dummy.");
+  // }
 });
 
 

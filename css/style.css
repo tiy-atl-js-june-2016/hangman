@@ -18,5 +18,6 @@
 
 .guessed {
     text-decoration: line-through;
+    font-weight: normal;
     color: red;
 }
