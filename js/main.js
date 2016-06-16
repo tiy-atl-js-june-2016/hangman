@@ -21,6 +21,14 @@ for(var count = 0; count < answer.length; count++) {
 };
 board.innerHTML = newHTML;
 
+// var board = document.querySelector("#board");
+// for(var count = 0; count < answer.length; count++) {
+//   var spanNode = document.createElement("span");
+//   spanNode.textContent = "_";
+//   board.appendChild(spanNode);
+// };
+
+
 // addEventListener for js/page magic
 
 var bumpCount = function (event) {
@@ -46,3 +54,8 @@ el.addEventListener('click', bumpCount);
 
 var letters = document.querySelector(".alphabet");
 letters.addEventListener('click', makeGuess);
+
+var body = document.querySelector("body");
+body.addEventListener('click', function (event) {
+  console.log(event);
+});
